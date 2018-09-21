@@ -12,37 +12,38 @@ app.app_context().push()
 
 @app.route('/')
 def index():
-    logged_in_email = session.get('logged_in_email')
-    if logged_in_email:
-        return render_template('index.html', email=logged_in_email)
+    if session.get('logged_in_email'):
+        return render_template('index.html', email=session.get('logged_in_email'))
     return render_template('index.html')
 
 
 @app.route('/login', methods=['GET',  'POST'])
 def login():
-    if session['logged_in_email']:
+    if session.get('logged_in_email'):
         return redirect(url_for('index'))
+    error_message = ""
     form = LoginForm()
     if form.validate_on_submit():
-        user = User.query.filter_by(email=form.email.data).first()
+        user = User.query.filter_by(email=form.email.data.lower()).first()
         if user:
             if check_password_hash(user.password, form.password.data):
                 session['logged_in_email'] = user.email
                 print(session['logged_in_email'])
                 return redirect(url_for('index'))
+        error_message = "Invalid email and/or password!"
     return render_template('login.html', form=form, error_message=error_message)
 
 
 @app.route('/signup', methods=['GET', 'POST'])
 def signup():
-    if session['logged_in_email']:
+    if session.get('logged_in_email'):
         return redirect(url_for('index'))
     error_message = ""
     form = RegistrationForm()
     if form.validate_on_submit():
         if not check_user_exist(form.email.data):
             hashed_password = generate_password_hash(form.password.data, method='sha256')
-            new_user = User(email=form.email.data, password=hashed_password)
+            new_user = User(email=form.email.data.lower(), password=hashed_password)
             db.session.add(new_user)
             db.session.commit()
             session['logged_in_email'] = form.email.data
