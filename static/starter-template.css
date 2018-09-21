@@ -6,3 +6,13 @@ body {
   padding: 40px 15px;
   text-align: center;
 }
+
+#navbar{
+  display: flex !important;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+#navbar-nav{
+
+}

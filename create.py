@@ -2,6 +2,7 @@ import os
 from flask import Flask
 from flask_bootstrap import Bootstrap
 from flask_sqlalchemy import SQLAlchemy
+from flask_session import Session
 from dotenv import load_dotenv
 from models import db
 
@@ -12,7 +13,6 @@ def create_app():
     app.config["SECRET_KEY"] = os.getenv("SECRET_KEY")
     app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv("DATABASE_URL")
     app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
-    print(os.getenv("DATABASE_URL"))
     db.init_app(app)
     Bootstrap(app)
     return app
