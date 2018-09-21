@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, redirect, url_for
 from forms import LoginForm, RegistrationForm
 from models import User, db
 from create import create_app
@@ -18,7 +18,12 @@ def index():
 def login():
     form = LoginForm()
     if form.validate_on_submit():
-        return form.email.data + "," + form.password.data
+        user = User.query.filter_by(email=form.email.data).first()
+        if user:
+            if form.password.data == user.password:
+                return redirect(url_for('index'))
+        return 'Invalid Username or Password'
+
     return render_template('login.html', form=form)
 
 
@@ -32,7 +37,7 @@ def signup():
         return 'New User Created'
     return render_template('signup.html', form=form)
 
-# 
+#
 # @app.route('/dashboard')
 # def dashboard():
 #     return render_template('dashboard.html')
