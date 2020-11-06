@@ -5,4 +5,4 @@ ADD requirements.txt /code/
 RUN pip install -r requirements.txt
 ADD . /code
 
-ENV FLASK_APP=app.py
+ENV FLASK_APP=clipthatoff/app.py
