@@ -60,9 +60,3 @@ def logout():
 
 def check_user_exist(email):
     return User.query.filter_by(email=email).first()
-
-
-#
-# @app.route('/dashboard')
-# def dashboard():
-#     return render_template('dashboard.html')
