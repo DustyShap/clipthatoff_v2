@@ -9,7 +9,7 @@ services:
       - ./postgres-data:/var/lib/postgresql/data
   web:
     build: .
-    command: gunicorn --bind 0.0.0.0 clipthatoff.app
+    command: gunicorn --bind 0.0.0.0 --workers=4 --access-logfile - clipthatoff.app
     env_file:
       - docker.env
     volumes:
