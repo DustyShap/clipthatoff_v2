@@ -1,12 +1,12 @@
-from flask import Flask, render_template, redirect, url_for, session
-from forms import LoginForm, RegistrationForm
-from models import User, db
-from create import create_app
+from flask import Flask, render_template, redirect, url_for, session, jsonify
+from clipthatoff.forms import LoginForm, RegistrationForm
+from clipthatoff.models import Drop, AdminUser, User, ClickStat, SearchStat, db
+from clipthatoff.create import create_app
 from flask_sqlalchemy import SQLAlchemy
 from werkzeug.security import generate_password_hash, check_password_hash
 
 
-app = create_app()
+app = application = create_app()
 app.app_context().push()
 
 
@@ -60,9 +60,3 @@ def logout():
 
 def check_user_exist(email):
     return User.query.filter_by(email=email).first()
-
-
-#
-# @app.route('/dashboard')
-# def dashboard():
-#     return render_template('dashboard.html')

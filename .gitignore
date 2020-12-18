@@ -1,2 +1,5 @@
 venv
+pg_dumps
+postgres-data
+docker.env
 *.pyc

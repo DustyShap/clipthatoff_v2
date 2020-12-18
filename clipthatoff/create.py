@@ -4,7 +4,7 @@ from flask_bootstrap import Bootstrap
 from flask_sqlalchemy import SQLAlchemy
 from flask_session import Session
 from dotenv import load_dotenv
-from models import db
+from clipthatoff.models import db
 
 
 def create_app():
