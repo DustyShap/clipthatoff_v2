@@ -3,7 +3,6 @@
 
 {% block styles %}
 {{super()}}
-<link rel="stylesheet" href="{{url_for('.static', filename='starter-template.css')}}">
 {% endblock %}
 
 {% block content %}
@@ -29,17 +28,50 @@
 
 
           </ul>
-        </div><!--/.nav-collapse -->
+        </div>
       </div>
     </nav>
 
-    <div class="container">
-
-      <div class="starter-template">
-        <h1>Clip That Off</h1>
-        {{ email }}
-        <!-- <p class="lead">Use this document as a way to quickly start any new project.<br> All you get is this text and a mostly barebones HTML document.</p> -->
+    <div id="main_container">
+      <div id="left_container">CENTER</div>
+      <div id="right_container">
+        <div id="main_grid">
+                <div class="row">
+                    <div class="cell cell_populated"><div class="cell_top populated">Dusty</div><div class="cell_bottom bottom_populated"></div></div>
+                    <div class="cell"><div class="cell_top"></div><div class="cell_bottom"></div></div>
+                    <div class="cell"><div class="cell_top"></div><div class="cell_bottom"></div></div>
+                    <div class="cell"><div class="cell_top"></div><div class="cell_bottom"></div></div>
+                    <div class="cell"><div class="cell_top"></div><div class="cell_bottom"></div></div>
+                </div><!--End first row-->
+                 <div class="row">
+                     <div class="cell"><div class="cell_top"></div><div class="cell_bottom"></div></div>
+                    <div class="cell"><div class="cell_top"></div><div class="cell_bottom"></div></div>
+                    <div class="cell"><div class="cell_top"></div><div class="cell_bottom"></div></div>
+                    <div class="cell"><div class="cell_top"></div><div class="cell_bottom"></div></div>
+                    <div class="cell"><div class="cell_top"></div><div class="cell_bottom"></div></div>
+                </div><!--End second row-->
+                 <div class="row">
+                    <div class="cell"><div class="cell_top"></div><div class="cell_bottom"></div></div>
+                    <div class="cell"><div class="cell_top"></div><div class="cell_bottom"></div></div>
+                    <div class="cell"><div class="cell_top"></div><div class="cell_bottom"></div></div>
+                    <div class="cell"><div class="cell_top"></div><div class="cell_bottom"></div></div>
+                    <div class="cell"><div class="cell_top"></div><div class="cell_bottom"></div></div>
+                </div><!--End third row-->
+                 <div class="row">
+                    <div class="cell"><div class="cell_top"></div><div class="cell_bottom"></div></div>
+                    <div class="cell"><div class="cell_top"></div><div class="cell_bottom"></div></div>
+                    <div class="cell"><div class="cell_top"></div><div class="cell_bottom"></div></div>
+                    <div class="cell"><div class="cell_top"></div><div class="cell_bottom"></div></div>
+                    <div class="cell"><div class="cell_top"></div><div class="cell_bottom"></div></div>
+                </div><!--End fourth row-->
+                 <div class="row">
+                    <div class="cell"><div class="cell_top"></div><div class="cell_bottom"></div></div>
+                    <div class="cell"><div class="cell_top"></div><div class="cell_bottom"></div></div>
+                    <div class="cell"><div class="cell_top"></div><div class="cell_bottom"></div></div>
+                    <div class="cell"><div class="cell_top"></div><div class="cell_bottom"></div></div>
+                    <div class="cell"><div class="cell_top"></div><div class="cell_bottom"></div></div>
+                </div><!--End fifth row-->
+               </div><!--End main grid-->
       </div>
-
-    </div><!-- /.container -->
+    </div>
 {% endblock %}
